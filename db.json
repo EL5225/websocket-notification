@@ -1,0 +1,54 @@
+{
+  "notification_id": 16,
+  "notification": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "title": "Driver sudah sampai!",
+      "body": "Hai Driver kamu sudah sampai di tujuan",
+      "is_read": false
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "title": "Yeay, kamu sudah sampai tujuan!",
+      "body": "Jangan lupa berikan reviewmu",
+      "is_read": false
+    },
+    {
+      "id": 3,
+      "user_id": 1,
+      "title": "Pembayaran berhasil!",
+      "body": "Saldo kamu terpotong sebesar Rp. 500.000 untuk biaya perjalananmu",
+      "is_read": true
+    },
+    {
+      "id": 4,
+      "user_id": 2,
+      "title": "Driver sudah sampai!",
+      "body": "Hai Driver kamu sudah sampai di tujuan",
+      "is_read": true
+    },
+    {
+      "id": 5,
+      "user_id": 2,
+      "title": "Yeay, kamu sudah sampai tujuan!",
+      "body": "Jangan lupa berikan reviewmu",
+      "is_read": true
+    },
+    {
+      "id": 6,
+      "user_id": 2,
+      "title": "Pembayaran berhasil!",
+      "body": "Saldo kamu terpotong sebesar Rp. 200.000 untuk biaya perjalananmu",
+      "is_read": true
+    },
+    {
+      "id": 7,
+      "user_id": 2,
+      "title": "Test 1",
+      "body": "Halo 1",
+      "is_read": false
+    }
+  ]
+}

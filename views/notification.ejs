@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notification Page</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header,
+      nav,
+      main,
+      footer {
+        margin: 20px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 2px solid black;
+        width: 20rem;
+        border-radius: 15px;
+      }
+
+      .readed {
+        color: gray;
+      }
+
+      #notificationListReaded {
+        color: gray;
+      }
+
+      .listReaded {
+        border: 2px solid gray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Notifications</h1>
+    </header>
+
+    <nav></nav>
+
+    <main>
+      <section>
+        <h2>Notification List</h2>
+
+        <h4 class="readed">Yang sudah dibaca</h4>
+        <ul id="notificationListReaded">
+          <!-- Notification items will be dynamically added here -->
+
+          <% notification.filter((item) => item.is_read === true).map((item) => { %>
+          <li class="listReaded">
+            <b><%= item.title %></b>
+            <p><%= item.body %></p>
+          </li>
+          <% }) %>
+        </ul>
+
+        <br />
+
+        <h4>Pesan yang belum dibaca</h4>
+        <ul id="notificationList">
+          <!-- Notification items will be dynamically added here -->
+
+          <% notification.filter((item) => item.is_read === false).map((item) => { %>
+          <li>
+            <b><%= item.title %></b>
+            <p><%= item.body %></p>
+          </li>
+          <% }) %>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Luthfi. All rights reserved.</p>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+      const notificationList = document.getElementById("notificationList");
+
+      const socket = io();
+      const user_id = "<%= user_id %>";
+      const newNotif = `user-${user_id}`;
+
+      socket.on(newNotif, (notif) => {
+        console.log("new notif");
+
+        const item = document.createElement("li");
+        item.innerHTML = `<b>${notif.title}</b>
+            <p>${notif.body}</p>`;
+        notificationList.appendChild(item);
+      });
+    
+
+    </script>
+  </body>
+</html>
